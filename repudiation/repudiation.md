@@ -17,5 +17,7 @@ The example demonstrates a vulnerability that can lead to repudiation by malicio
 ## For you to do
 
 1. Briefly explain the vulnerability.
+   The web does not verfiy user identity so that they cannot prove which user send a particular message.
 2. Briefly explain why the vulnerability is addressed in __secure.ts__.
+   Every message sent is logged with timestamp and IP address to the persistent file. Also, it require user to be authenticated to receive messages.
 3. Which design pattern is used in the secure version to address the vulnerability? Briefly explain how it works?

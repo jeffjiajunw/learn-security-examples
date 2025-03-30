@@ -25,5 +25,8 @@ The example demonstrates a privilege escalation vulnerability and how to exploit
 Answer the following:
 
 1. Briefly explain the potential vulnerabilities in **insecure.ts**
+   It just check whether the userid role is admin, but the userid is provided mby client, so it can be guessed. And there is no session or token authentication.
 2. Briefly explain how a malicious attacker can exploit them.
+   An attacker can craft a request that includes the `userId` of an admin, even if they are not an admin themselves. It change the admin role.
 3. Briefly explain the defensive techniques used in **secure.ts** to prevent the privilege escalation vulnerability?
+   The server checks for a valid session to check if user is authenticated instead of let user provide the id itself. It will check if user is admin. The session cookies are configured with httponly and samesite strict to prevent from csrf attack.

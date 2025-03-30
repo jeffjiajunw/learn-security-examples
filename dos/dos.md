@@ -31,5 +31,8 @@ This will create a database in MongoDB called __infodisclosure__. Verify its pre
 Answer the following:
 
 1. Briefly explain the potential vulnerabilities in **insecure.ts** that can lead to a DoS attack.
+   It does not have error handing so that a user can send invalid request to the server and the serve may encounter error and crash.
 2. Briefly explain how a malicious attacker can exploit them.
+   When the empty string is passed, Mongoose will cast it into an Objectid, but it cannot, and will throw an error.
 3. Briefly explain the defensive techniques used in **secure.ts** to prevent the DoS vulnerability?
+   It limit the rate to restrict the number of requests can be made in a given of time period by one client. It use error catch method to catch the runtime error throw by Mongoose to prevent from crashing.

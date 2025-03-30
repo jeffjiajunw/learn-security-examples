@@ -31,5 +31,11 @@ This will create a database in MongoDB called __infodisclosure__. Verify its pre
 Answer the following:
 
 1. Briefly explain the potential vulnerabilities in **insecure.ts**
+
+   It is vulnerable to NoSQL injection. It directly uses user-supplied input in the MongoDB query without proper sanitization or validation. So MongoDB can just run the code user input.
 2. Briefly explain how a malicious attacker can exploit them.
+
+   An attacker can craft a malicious payload—like `username[$ne] `to manipulate the query condition. Instead of searching for a specific username, the query interprets this as looking for any user whose username is not equal to an empty string.
 3. Briefly explain the defensive techniques used in **secure.ts** to prevent the information disclosure vulnerability?
+
+    The code checks that the username is a string before proceeding, which prevents unexpected data types from being used in the query. By applying a regular expression that removes non-alphanumeric characters, the code strips out any injected MongoDB operators, thereby preventing NoSQL injection.
