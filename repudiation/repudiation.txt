@@ -1,2 +1,7 @@
 - Briefly explain the vulnerability and why the secure version is better at preventing repudiation than the insecure version.
+
+The web does not verfiy user identity so that they cannot prove which user send a particular message. Every message sent is logged with timestamp and IP address to the persistent file. Also, it require user to be authenticated to receive messages.
+
 - What additional security mechanisms can you incorporate to prevent such attacks?
+
+It can use MFA so that it strengthen the authentication process by requiring an additional factor beyond just a password.
