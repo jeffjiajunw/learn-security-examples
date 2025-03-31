@@ -18,4 +18,4 @@ The example demonstrates a vulnerability that can lead to repudiation by malicio
 2. Briefly explain why the vulnerability is addressed in __secure.ts__.
    Every message sent is logged with timestamp and IP address to the persistent file. Also, it require user to be authenticated to receive messages.
 3. Which design pattern is used in the secure version to address the vulnerability? Briefly explain how it works?
-   It use chain of responsibility. Each function in middleware process the request sequentially. If the function can't completely handle the request, it passes the control to the next func.
+   It use the middleware design pattern. Each function in middleware process the request sequentially. If the function can't completely handle the request, it passes the control to the next func. This ensures that every request is processed through layers that can log activities, enforce authentication, and handle errors to address the vulnerability/
